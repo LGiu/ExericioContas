@@ -1,6 +1,7 @@
 package br.com.deliverit.Util;
 
 import br.com.deliverit.Interface.Model;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,6 +16,7 @@ public class Conversor<U extends Model, T> {
         this.uClass = uClass;
         this.tClass = tClass;
         objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
     public List<T> paraDTO(List<U> us) {
         return us.stream().map(this::paraDTO).collect(Collectors.toList());

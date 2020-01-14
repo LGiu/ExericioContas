@@ -21,9 +21,14 @@ public class RegraAtrasoService extends ServiceGenerico<RegraAtraso> {
     }
 
     public BigDecimal aplicaRegraValor(Integer dias, BigDecimal valor) {
-        RegraAtraso regraAtraso = regraAtrasoRepository.findFirstByDiasAtrasoMinGreaterThanEqualAndDiasAtrasoMaxLessThanEqual(dias, dias);
-        valor = valor.multiply(regraAtraso.getMulta().divide(new BigDecimal("100"))).multiply(regraAtraso.getJurosDia());
-        valor = valor.multiply(regraAtraso.getJurosDia().multiply(new BigDecimal(dias)).divide(new BigDecimal("100"))).multiply(regraAtraso.getJurosDia());
-        return valor;
+        try {
+            RegraAtraso regraAtraso = regraAtrasoRepository.findFirstByDiasAtrasoMaxGreaterThanEqualAndDiasAtrasoMinLessThanEqual(dias, dias);
+            BigDecimal novoValor = valor;
+            novoValor = novoValor.add(valor.multiply(regraAtraso.getMulta().divide(new BigDecimal("100"))));
+            novoValor = novoValor.add(valor.multiply(regraAtraso.getJurosDia().divide(new BigDecimal("100"))).multiply(new BigDecimal(dias)));
+            return novoValor;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

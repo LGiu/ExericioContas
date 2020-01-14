@@ -15,6 +15,8 @@ public class ContaDTO<T> {
 
     private Integer diasAtraso;
 
+    private Date dataVencimento;
+
     private Date dataPagamento;
 
     public String getNome() {
@@ -55,5 +57,13 @@ public class ContaDTO<T> {
 
     public void setDataPagamento(Date dataPagamento) {
         this.dataPagamento = dataPagamento;
+    }
+
+    public Date getDataVencimento() {
+        return dataVencimento;
+    }
+
+    public void setDataVencimento(Date dataVencimento) {
+        this.dataVencimento = dataVencimento;
     }
 }

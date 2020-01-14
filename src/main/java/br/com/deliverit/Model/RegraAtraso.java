@@ -16,7 +16,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "regra_atraso")
+@Table(name = "regra_atraso", uniqueConstraints = {@UniqueConstraint(columnNames = {"diasAtrasoMin", "diasAtrasoMax"})})
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class RegraAtraso extends Modelador<RegraAtraso> implements Model {
 
@@ -24,10 +24,10 @@ public class RegraAtraso extends Modelador<RegraAtraso> implements Model {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Range(min = 0, message = "Tamanho deve estar ser no mínimo 0")
+    @Range(min = 0, max = 99999, message = "Tamanho deve estar ser no mínimo 0")
     private Integer diasAtrasoMin;
 
-    @Range(min = 0, message = "Tamanho deve estar ser no mínimo 0")
+    @Range(min = 0, max = 99999, message = "Tamanho deve estar ser no mínimo 0")
     private Integer diasAtrasoMax;
 
     @NotNull(message = "A multa deve ser informada!")

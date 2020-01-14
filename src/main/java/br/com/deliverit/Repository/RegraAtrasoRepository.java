@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RegraAtrasoRepository extends JpaRepository<RegraAtraso, Long> {
 
-    RegraAtraso findFirstByDiasAtrasoMinGreaterThanEqualAndDiasAtrasoMaxLessThanEqual(Integer dias1, Integer dias2);
+    RegraAtraso findFirstByDiasAtrasoMaxGreaterThanEqualAndDiasAtrasoMinLessThanEqual(Integer dias1, Integer dias2);
 
 }
 
