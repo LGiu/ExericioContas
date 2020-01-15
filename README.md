@@ -1,21 +1,23 @@
 # Deliverit
 ________________________________________________________________________________________
 
-O sistema foi desenvolvido em Java 8, utilizando o framework Spring Boot 2.2. A linguagem de banco utilizada foi o H2 ou Postgresql.
+O sistema foi desenvolvido em Java 8, utilizando o framework Spring Boot 2.2. A linguagem de banco utilizada foi o Postgresql.
 
-Configurações iniciais do sistema:
+________________________________________________________________________________________
 
-É possível escolher entre dois banco de dados no sistema, o H2 (Banco em memória) ou Postgresql. Caso queira utilizar o Postgresql é necessário ter ele instalado na máquina. Também é necessário rodar o comando abaixo:
+*CONFIGURAÇÕES INICIAIS:*
+
+Necessário instalar o Postgresql.
+
+Caso necessário deve-se alterar as configuração de banco nos properties do projeto.
+
+Também é necessário rodar o comando abaixo:
 - create database deliverirt;
-
-Para alternar entre os banco basta descomentar as linhas nas properties do projeto e alterar dados conforme o necessário.
 
 Feito isso deve-se startar o projeto pra a criação das tabelas e colunas.
 
-Após é possível utilizar os End-Point abaixo
-
 ________________________________________________________________________________________
-MODELO
+*END-POINTS E EXEMPLO DE UTILIZAÇÃO*
 
 HEADER - Content-Type:application/json
 
