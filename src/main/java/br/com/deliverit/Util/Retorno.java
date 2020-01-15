@@ -22,7 +22,6 @@ public class Retorno<U extends Model> {
         this.erro = true;
     }
 
-
     public Retorno(U clazz) {
         this.idGravado = clazz.getId();
         this.erro = false;

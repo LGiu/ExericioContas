@@ -44,15 +44,13 @@ public class Conta extends Modelador<Conta> implements Model {
     private Integer diasAtraso;
 
     @NotNull(message = "A data de vencimento deve ser informada!")
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    @JsonSerialize()
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dataVencimento;
 
     @NotNull(message = "A data de pagamento deve ser informada!")
-    @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    @JsonSerialize()
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dataPagamento;
 
     @Override

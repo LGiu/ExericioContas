@@ -26,8 +26,8 @@ public class ServiceGenerico<U extends Model> {
         this.uClass = uClass;
     }
 
-    public Retorno validador(U u) {
-        Retorno retorno = Validador.validacaoInicial(u);
+    public Retorno<U> validador(U u) {
+        Retorno<U> retorno = Validador.validacaoInicial(u);
         if (retorno.isErro()) {
             return retorno;
         }
@@ -39,7 +39,7 @@ public class ServiceGenerico<U extends Model> {
     }
 
     @Transactional
-    public Retorno exclui(Long id) {
+    public Retorno<U> exclui(Long id) {
         try {
             return exclui(buscaPorId(id));
         } catch (Exception e) {
@@ -47,7 +47,7 @@ public class ServiceGenerico<U extends Model> {
         }
     }
 
-    public Retorno exclui(U u) {
+    public Retorno<U> exclui(U u) {
         try {
             if (u == null) {
                 return new Retorno("Id informado não existe!");
@@ -60,14 +60,14 @@ public class ServiceGenerico<U extends Model> {
     }
 
     @Transactional
-    public Retorno salva(U u) {
+    public Retorno<U> salva(U u) {
         return salva(u, true);
     }
 
     @Transactional
-    public Retorno salva(U u, boolean valida) {
+    public Retorno<U> salva(U u, boolean valida) {
         if (valida) {
-            Retorno retorno = validador(u);
+            Retorno<U> retorno = validador(u);
             if (retorno.isErro()) {
                 return retorno;
             }

@@ -28,4 +28,13 @@ public class Datas {
         return dt1.format(date);
     }
 
+
+    public static Date stringParaDate(String data, String formato) {
+        try {
+            return new SimpleDateFormat(formato).parse(data);
+        } catch (ParseException e) {
+            return null;
+        }
+    }
+
 }

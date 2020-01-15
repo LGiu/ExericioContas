@@ -1,6 +1,8 @@
 package br.com.deliverit.DTO;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -15,8 +17,10 @@ public class ContaDTO<T> {
 
     private Integer diasAtraso;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dataVencimento;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dataPagamento;
 
     public String getNome() {
